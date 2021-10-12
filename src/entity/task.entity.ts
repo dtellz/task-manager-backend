@@ -4,7 +4,7 @@ import { Column, Entity, PrimaryGeneratedColumn, CreateDateColumn } from "typeor
 export enum TaskStatus {
     Pending = 0,
     Done = 1,
-    Canceled = 2
+    Cancelled = 2
 }
 
 export enum TaskPriority {

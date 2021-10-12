@@ -30,30 +30,3 @@ export class Task {
     @CreateDateColumn({ nullable: true, default: null })
     endTime?: Date;
 }
-
-// import { CreateDateColumn, Entity, PrimaryGeneratedColumn, Column } from "typeorm";
-
-// enum TaskStatus {
-//     Done = 0,
-//     Pending = 1,
-//     Canceled = 2
-// }
-// enum TaskPriority {
-//     Low = 0,
-//     Mid = 1,
-//     High = 2
-// }
-
-// @Entity()
-// export declare class Task {
-//     @PrimaryGeneratedColumn()
-//     id: number;
-//     @Column({ nullable: true, type: 'string', length: 64 })
-//     title: string;
-//     @Column({ nullable: true, default: TaskStatus.Pending })
-//     status: TaskStatus;
-//     @Column({ nullable: true, default: TaskPriority.High })
-//     priority: TaskPriority;
-//     @CreateDateColumn({ nullable: true })
-//     endTime: Date;
-// }

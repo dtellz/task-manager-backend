@@ -53,30 +53,31 @@ export class TaskService {
         return tasksDTO;
     }
 
-    // public async updateOne(taskId: number, updateTaskRequest: UpdateTaskDTO) {
-    //     // fetch and check if the task exists
-    //     const task: Task = await this.getOne(taskId);
+    public async updateOne(taskId: number, updateTaskRequest: UpdateTaskDTO) {
+        // fetch and check if the task exists
+        const task: Task = await this.getOne(taskId);
 
-    //     // check which properties are set in the dto
-    //     task.title = updateTaskRequest.title || task.title;
-    //     task.description = updateTaskRequest.description || task.description;
-    //     task.status = updateTaskRequest.status === undefined ? task.status : updateTaskRequest.status;
+        // check which properties are set in the dto if there is no data on the body for a given field we set it to its previous value
+        task.title = updateTaskRequest.title || task.title;
+        task.status = updateTaskRequest.status || task.status;
+        task.priority = updateTaskRequest.priority || task.priority;
+        task.endTime = updateTaskRequest.endTime ?? task.endTime;
 
-    //     // update the properties on the task
-    //     await this.taskRepository.save(task);
+        // update the properties on the task
+        await this.taskRepository.save(task);
 
-    //     // return the task as a dto
-    //     const taskDTO: TaskDTO = this.entityToDTO(task);
+        // return the task as a dto
+        const taskDTO: TaskDTO = this.entityToDTO(task);
 
-    //     return taskDTO;
-    // }
+        return taskDTO;
+    }
 
-    // public async deleteOne(taskId: number) {
-    //     // fetch and check if the task exists
-    //     const task: Task = await this.getOne(taskId);
+    public async deleteOne(taskId: number) {
+        // fetch and check if the task exists
+        const task: Task = await this.getOne(taskId);
 
-    //     // delete the task
-    //     await this.taskRepository.remove(task);
-    // }
+        // delete the task
+        await this.taskRepository.remove(task);
+    }
 
 }

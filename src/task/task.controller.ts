@@ -30,16 +30,16 @@ export class TaskController {
         return resp;
     }
 
-    // @Put("/:id")
-    // public async updateOne(@Param("id") taskId: number, @Body() updateTaskRequest: UpdateTaskDTO) {
-    //     const resp = await this.taskService.updateOne(taskId, updateTaskRequest);
+    @Put("/:id")
+    public async updateOne(@Param("id") taskId: number, @Body() updateTaskRequest: UpdateTaskDTO) {
+        const resp = await this.taskService.updateOne(taskId, updateTaskRequest);
 
-    //     return resp;
-    // }
+        return resp;
+    }
 
-    // @Delete("/:id")
-    // @HttpCode(HttpStatus.NO_CONTENT)
-    // public async deleteOne(@Param("id") taskId: number) {
-    //     await this.taskService.deleteOne(taskId);
-    // }
+    @Delete("/:id")
+    @HttpCode(HttpStatus.NO_CONTENT)
+    public async deleteOne(@Param("id") taskId: number) {
+        await this.taskService.deleteOne(taskId);
+    }
 }

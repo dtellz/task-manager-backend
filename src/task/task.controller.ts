@@ -25,6 +25,7 @@ export class TaskController {
 
     @Post()
     public async createOne(@Body() createTaskRequest: CreateTaskDTO) {
+        console.log(createTaskRequest);
         const resp = await this.taskService.createOne(createTaskRequest);
 
         return resp;
